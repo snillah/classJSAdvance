@@ -32,7 +32,7 @@ eventOutput2.innerText =inputVal1.value
 let eventOutput3 = document.getElementById("pOutput3")
 let eventOutput4 = document.getElementById("pOutput4")
 
-document.addEventListener('keypress', (event)=>{
+document.addEventListener('keydown', (event)=>{
 eventOutput3.innerText = `you entered ${event.key}`;
     if(event.key === "Enter"){
         eventOutput4.innerHTML = `you Entered ${event.key}`;
