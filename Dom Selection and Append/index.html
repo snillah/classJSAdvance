@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <h1>DOM Elements</h1>
+    <p>How to show window elements in console</p>
+    <code> </code>
+    <p>To Create an element and SetAttribute</p>
+    <code>
+      // Create an element<br />
+      const element = document.createElement("div")<br />
+      console.log(element);<br />
+      <br />
+      //set Attribute<br />
+      element.setAttribute("class","dom")<br />
+      element.setAttribute("id","main-div")<br />
+    </code>
+    <h1>How to get Element by ID and Class capture the element form js</h1>
+    <p id="main-id" class="main-class">Para element is catched by JS</p>
+    <p id="main-id" class="main-class">Para element is catched by JS</p>
+    <strong>Id and class difference:</strong>
+    <p>For <mark>Id</mark> it will give one element</p>
+    <p>For <mark>Class</mark> it will give collection of element</p>
+    <h1>
+      capture the element form js By Using Query Selector and Query SelectorAll
+    </h1>
+    <p>Query Selector = > It will give First element</p>
+    <p>Query SelectorAll = > It will give collections or Array type</p>
+    <img src="./get alll Id and shows image.png" alt="array of ID" />
+    <h1>Capture the element and give style for the Element</h1>
+    <p>Single color approach variable.style.color = "red";</p>
+    <p>Multiple color approach use function like this</p>
+    <img src="./multicolors.png" alt="Multi color" />
+
+    <h1>InnerHTML</h1>
+    <p id="domdo"></p>
+    <h1>Append and appendchild</h1>
+    <span> this is difference</span>
+    <p>
+      append : multiple element can give in that
+      element.append(element1,element2)
+    </p>
+    <p id="domappend"></p>
+    <p>
+      appendChild : One element can give in that element.appendchild(element1)
+    </p>
+
+    <script src="./dom.js"></script>
+    <script src="./append,Innerhtml.js"></script>
+  </body>
+</html>
