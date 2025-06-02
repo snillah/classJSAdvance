@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        margin: 10px;
+        padding: 10px;
+      }
+      .large{
+        font-size: 25px;
+        padding: 20px;
+        border-radius: 12px;
+ 
+      }
+      .small{
+        font-size: 16px;
+        padding: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent">
+      parent
+      <div id="child">child</div>
+    </div>
+    <div id="parent1">
+      parent
+      <div id="child1">child</div>
+    </div>
+    <h1>Calling Higher order function and access inside function</h1>
+
+    const conutFunction = outerFunction(); <br>// calling function<br> conutFunction()<br>
+    function outerFunction(){<br> let count = 0;<br> return function innerfunction(){<br>
+    count++; counter.innerHTML = count<br> } }
+
+    <div id="count"></div>
+
+    <h1>curring function</h1>
+    <p>continous given token using Recursive function avoid multiple cod e or function </p>
+    // to avoid this Recursive
+<br>
+function sum1(num1){
+    <br>
+    return function(num2){<br>
+        if(num2){<br>
+            return sum1(num1+num2);<br>
+        }<br>
+        return num1;<br>
+    }<br>
+}<br>
+console.log(sum1(2)(3)(4)());
+<h2>Using Curring function we create a component dynamically</h2>
+<div class="" id="btn-list"></div>
+    <script src="./script.js"></script>
+    <script src="./clousers.js"></script>
+    <script src="./curringCreateButtonComp.js"></script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #pad {
+      border: 2px sollid black;
+      width: 400px;
+      height: 300px;
+      margin: 20px auto;
+      position: relative;
+      cursor: crosshair;
+    }
+
+    #palette {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    #colors span {
+      display: inline-block;
+    }
+  </style>
+  <body>
+    <h2>Paint Pad</h2>
+    <div id="palette">
+      Pick color:
+      <div id="colors">
+        <span style="background: red" data-color="red">Red</span>
+        <span style="background: blue" data-color="blue">Blue</span>
+        <span style="background: green" data-color="red">Green</span>
+        <span style="background: yellow" data-color="red">Yellow</span>
+      </div>
+    </div>
+    <div id="pad"></div>
+    <script>
+      const pad = document.getElementById("pad");
+      //default : user is not drawing
+      let drawing = false;
+      // default brush color is red
+      let brushColor = "red";
+
+      document
+        .getElementById("colors")
+        .addEventListener("click", function (event) {
+          if (!event.target.dataset.color) return;
+          brushColor = event.target.dataset.color;
+          console.log(brushColor);
+        });
+      pad.addEventListener("mousedown", (e) => {
+        drawing = true;
+      });
+      pad.addEventListener("mouseup", (e) => {
+        drawing = false;
+      });
+      pad.addEventListener("mouseleave", (e) => (drawing = false));
+      pad.addEventListener("mousemove", (e) => {
+        if (!drawing) return;
+        const dot = document.createElement("div");
+        dot.className = "dot";
+        dot.style.background = brushColor;
+        dot.style.left = event.offsetX + "px";
+        dot.style.left = event.offsetY + "px";
+        pad.appendChild(dot);
+      });
+      pad.addEventListener('dblclick',(e)=>pad.innerHTML="")
+    </script>
+  </body>
+</html>

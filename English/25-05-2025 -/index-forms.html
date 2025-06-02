@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            width: 300px;
+            margin: 20 auto;
+        }
+        textarea,input,button{
+            display: block;
+            width: 100%;
+            margin-bottom:10px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Form Preview and Submit</h1>
+    <div>
+        <form action="" id="postForms">
+            <textarea name="" id="textarea">Type your text</textarea>
+            <label for="">
+                Font Size
+                <input type="range" name="" id="size" min="12" max="30" value="16">
+            </label>
+            <button type="submit">Post It</button>
+        </form>
+        <div id="preview"></div>
+        <div id="posts"></div>
+    </div>
+    <script>
+        const textArea = document.getElementById('textarea')
+        const size = document.getElementById('size')
+        const preview = document.getElementById('preview')
+        const postForm = document.getElementById('postForms')
+        const post = document.getElementById('posts')
+
+        textArea.addEventListener('input',()=>{
+            preview.innerHTML = textArea.value;
+        })
+        size.addEventListener('change')
+    </script>
+</body>
+</html>

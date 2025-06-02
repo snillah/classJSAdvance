@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #arena {
+        width: 400px;
+        height: 300px;
+        border: 2px solid black;
+        margin: 20px auto;
+        position: relative;
+        background: white;
+      }
+      #box {
+        width: 30px;
+        height: 30px;
+        background: greenyellow;
+        position: absolute;
+        top: 135px;
+        left: 180px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="arena">
+      <div id="box"></div>
+    </div>
+    <p style="text-align: center">left,right, up, down and move</p>
+<script>
+    const set = 10
+    const box =document.getElementById("box")
+    window.addEventListener('keydown',(e)=>{
+        console.log(e);
+        // destructure
+        let  {top, left} = box.getBoundingClientRect();
+        let arena = box.parentElement.getBoundingClientRect();
+        // we need to handle arrow up, down, right, left
+        switch(event, left, top){
+            case "ArrowLeft":
+                left = Math.max(left-step,arena.left)
+                box.style.left = (left - arena.left)+'px';
+            case "ArrowRight":
+            case "ArrowUp":
+            case "ArrowDown":
+        }
+        
+    })
+</script>  
+</body>
+</html>

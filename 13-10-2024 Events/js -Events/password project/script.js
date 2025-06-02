@@ -4,7 +4,7 @@ const btn = document.getElementById("btn");
 const confirmPassword  = document.getElementById("inputPassword1");
 const confPara = document.getElementById("conf-para");
 const submit = document.getElementById("btn1");
-let isValue = 0;
+let isValue = false;
 
 function stateToggle(){
     isValue = !isValue
