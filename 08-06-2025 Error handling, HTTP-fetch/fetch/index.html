@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch</title>
+  </head>
+  <body>
+    <div>
+      <div>
+          <h2>HTTP</h2>
+          <img src="./image.png" alt="">
+        </div>
+        <div>fetch details
+            <img src="./fetch.png" alt="">
+        </div>
+        <div>
+            <img src="./neww.png" alt="">
+        </div>
+          <div>
+            <img src="./nnew.png" alt="">
+        </div>
+        <div>
+            <h2>Fetch Example</h2>
+            <button id="getUserData" style="border: 1px solid blue; padding-inline:10px;">Fetch Data</button>
+            <div id="userList"></div>
+        </div>
+    </div>
+    <script>
+        const fetchDataBtn = document.getElementById('getUserData')
+        const fetchData = document.getElementById('userList')
+        const BaseApi = "https://jsonplaceholder.typicode.com/todos/"
+
+       function FetchApiCall(userId){
+           try{
+               const apiUrl = `${BaseApi}${userId}` 
+               console.log("api",apiUrl)
+                fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => fetchData.innerHTML = `the Data from Api ${data?.title}`)
+                
+            }catch(err){
+                console.error("Error",err.message);
+                
+            }
+        }
+
+        fetchDataBtn.addEventListener("click",()=>{
+            FetchApiCall(10);
+        })
+    </script>
+    <script src="./fetch.js"></script>
+  </body>
+</html>

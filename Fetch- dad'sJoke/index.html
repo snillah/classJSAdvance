@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dad Jokes Genrator</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      body {
+        font-family: "Times New Roman", Times, serif;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gradient-to-br from-blue-100 to-purple-200 flex items-center justify-center min-h-screen"
+  >
+    <!-- main container  card -->
+    <div
+      class="bg-white rounded-xl shadow-2xl p-8 max-w-lg w-full text-center border border-gray-200"
+    >
+      <!-- Header Title -->
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">Dad Joke Generator</h1>
+      <p class="text-gray-500 mb-8">Get Ready to grown!</p>
+
+      <!-- Container, where the joke will be display -->
+      <div
+        id="jokeDisplay"
+        class="min-h-[120px] bg-gray-50 rounded-lg flex items-center justify-center text-gray-700 text-lg leading-relaxed shadow-inner border border-gray-200"
+      >
+        Click the button to display a Joke...
+      </div>
+      <!-- button to trigger and fetching a new joke -->
+      <button
+        id="jokeBtn"
+        class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 mt-6"
+      >
+        Get a New Joke
+      </button>
+      <span id="infoMsg" class="hidden absolute inset-10 text-lg"></span>
+    </div>
+    <script>
+      const jokeBtn = document.getElementById("jokeBtn");
+      const jokeDisplay = document.getElementById("jokeDisplay");
+      const infoMsg = document.getElementById("infoMsg");
+
+      function fetchJoke() {
+        jokeDisplay.textContent = "Fetching a New Joke ...";
+        jokeBtn.disabled = true;
+
+        // fetching the api call and get new joke
+        const apiUrl = "https://icanhazdadjoke.com/";
+
+        fetch(apiUrl, {
+          headers: {
+            Accept: "application/json",
+          },
+        })
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            console.log("joke", data);
+            if (data.status == 200) {
+              infoMsg.classList.remove("hidden");
+              infoMsg.classList.add("text-green-600");
+              infoMsg.innerText = "Successfull Fetched";
+              jokeDisplay.textContent = data.joke;
+            }
+          })
+          .catch(function (error) {
+            jokeDisplay.textContent = `Oops! something went wrong, Please try again`;
+            infoMsg.classList.remove("hidden");
+            infoMsg.classList.add("text-red-500");
+            infoMsg.innerText = "Faild to Fetch";
+            console.log("error", error.message);
+          })
+          .finally(function () {
+            setTimeout(function () {
+              jokeBtn.disabled = false;
+              jokeDisplay.innerText = 'Click the button to display a Joke...'
+              infoMsg.classList.remove("text-green-600");
+              infoMsg.classList.remove("text-red-500");
+              infoMsg.classList.add("hidden");
+            }, 10000);
+          });
+      }
+
+      jokeBtn.addEventListener("click", fetchJoke);
+    </script>
+  </body>
+</html>

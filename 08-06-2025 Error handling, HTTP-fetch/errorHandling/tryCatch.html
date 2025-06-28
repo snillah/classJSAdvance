@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try catch Example</title>
+</head>
+<body>
+    <div id="status-message" style="color:blue,"></div>
+    <script>
+
+        function processData(userData){
+            const statusMessage = document.getElementById('status-message')
+
+            try{
+                const user = JSON.parse(userData)
+                if(!user.name){
+                    throw new Error("Invalid User Name")
+                }
+                if( typeof user.age !== 'number'){
+                    throw new Error("Invaild age data")
+                }
+                statusMessage.innerHTML = user.name + "and his"+ user.age 
+            }catch(err){
+                
+            }finally{
+
+            }
+
+        }
+        const user ={
+            name:"saravanan",
+            address:{
+                street:"rajjaji street",
+                zipCode:"600099"
+            },
+            age:26
+        }
+        processData
+        console.log(JSON.stringify(user));// change to json
+        
+    </script>
+</body>
+</html>
